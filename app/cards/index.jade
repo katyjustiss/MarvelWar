@@ -1,0 +1,6 @@
+extends ../templates/layout
+
+block content
+  div(ng-controller="CardCtrl as card")
+    ul
+      li(ng-repeat="c in card.data")
