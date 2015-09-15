@@ -1,8 +1,9 @@
 extends ../templates/layout
 
 block content
+  h1 Assemble your team
   div(ng-controller="CardCtrl as card")
-    ul
+    ul(ng-cloak)
       li(ng-repeat="c in card.data")
         p {{c.name}}
 

@@ -7,7 +7,7 @@ module.exports.index = function (req, res){
     if (err) throw err;
     res.format ({
       html: function () {
-        res.render('cards/index', {cards: cards});
+        res.render('templates/index', {cards: cards});
       },
       json: function () {
         res.send({cards : cards});

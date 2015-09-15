@@ -1,2 +1,2 @@
 angular
-  .module('MarvelWar', ['ui.router'])
+  .module('MarvelWar', ['ngRoute'])
