@@ -9,7 +9,7 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname);
 app.set('view engine', 'jade');
 
-app.locals.title = 'Marvel';
+app.locals.title = 'MarvelWar';
 
 app.use(express.static('www'));
 

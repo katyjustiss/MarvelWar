@@ -3,8 +3,8 @@
 var express = require('express');
 var router = express.Router();
 
-// var order = require('./order/routes');
+var cards = require('./cards/routes');
 
-// router.use('/', order);
+router.use('/', cards);
 
 module.exports = router;

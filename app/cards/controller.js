@@ -1,17 +1,19 @@
 "use strict"
 
-var Card = require('./Card');
+var Card = require('./Cards');
 
 module.exports.index = function (req, res){
-  // Card.findAll (function (err, orders){
-  //   if (err) throw err;
-  //   res.format ({
-  //     html: function () {
-  //       res.render('order/index', {orders: orders});
-  //     },
-  //     json: function () {
-  //       res.send({orders : orders});
-  //     }
-  //   });
-  // });
+  Card.findAll (function (err, cards){
+    if (err) throw err;
+    res.format ({
+      html: function () {
+        res.render('cards/index', {cards: cards});
+      },
+      json: function () {
+        res.send({cards : cards});
+      }
+    });
+  });
+
 };
+
