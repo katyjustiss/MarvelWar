@@ -9,6 +9,7 @@ Components include the Marvel API, Node.js, Express, AngularJS, angular-route,Ja
 ## Usage
 1. Git clone 'url'
 2. cd into the directory
+4. npm install and bower install
 3. node index
 
 ##Credit
