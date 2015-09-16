@@ -1,9 +1,11 @@
 extends ../templates/layout
 
 block content
-  h1 Assemble your team
-  div(ng-controller="CardCtrl as card")
-    ul(ng-cloak)
-      li(ng-repeat="c in card.data")
-        p {{c.name}}
-
+  div.main-content
+    h1 Assemble your team
+    p Select 5 members for your team. Click image.
+    div(ng-controller="CardCtrl as card")
+      slick(settings="slickConfig", init-onload=true, data="card.data")
+        div.carousel_wrapper(ng-repeat="c in card.data")
+          img.cardImg(ng-src="{{c.image}}")
+          h4.caption {{c.name}}

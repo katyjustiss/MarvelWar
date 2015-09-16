@@ -29,7 +29,7 @@ function query (sql, paramsOrCb, cb) {
 function Card() {};
 
 Card.findAll = function (cb) {
-  query('SELECT * FROM characters;', function (err, cards) {
+  query('SELECT * FROM characters INNER JOIN images ON (characters.characterid = images.characterid);', function (err, cards) {
     if (err) throw err;
     var prototypedOrders = cards.map(function (card) {
       return setPrototype(card);
