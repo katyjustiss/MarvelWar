@@ -1,2 +1,2 @@
 angular
-  .module('MarvelWar', ['ngRoute'])
+  .module('MarvelWar', ['ngRoute', 'slickCarousel', 'bootstrapLightbox', 'ui.bootstrap'])

@@ -15,7 +15,11 @@
   ],
   "dependencies": {
     "angular": "~1.4.5",
+    "angular-bootstrap": "~0.13.4",
+    "angular-bootstrap-lightbox": "~0.9.0",
     "angular-route": "~1.4.5",
-    "bootstrap": "~3.3.5"
+    "angular-slick-carousel": "~3.0.9",
+    "bootstrap": "~3.3.5",
+    "jquery": "jQuery#~2.1.4"
   }
 }
