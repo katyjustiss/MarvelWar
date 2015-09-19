@@ -2,16 +2,13 @@ angular
   .module('MarvelWar')
 
   .config(function($routeProvider) {
-    // $urlRouterProvider.when('', '/');
-    // $urlRouterProvider.otherwise('/');
-    console.log('routes');
     $routeProvider
       .when('/', {
-        templateURL: '/index',
+        templateURL: 'index.html',
         controller: 'CardCtrl'
       })
       .when('/game', {
-        templateURL: '/game',
+        templateURL: 'game.html',
         controller: 'CardCtrl'
       })
       .otherwise({redirectTo:'/'});

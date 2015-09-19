@@ -6,12 +6,12 @@ html(ng-app='MarvelWar')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
     title #{title}
-    include partials/stylesheets
+    include ./_stylesheets
   body
 
     .container
       div(ng-view)
       block content
 
-    include partials/scripts
-    include partials/footer
+    include ./_scripts
+    include ./_footer

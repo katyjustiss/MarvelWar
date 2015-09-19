@@ -1,4 +1,4 @@
-extends ../templates/layout
+extends ./partials/_layout
 
 block content
   div.main-content
@@ -7,5 +7,6 @@ block content
     div(ng-controller="CardCtrl as card")
       slick(settings="slickConfig", init-onload=true, data="card.data")
         div.carousel_wrapper(ng-repeat="c in card.data")
-          img.cardImg(ng-src="{{c.image}}")
-          h4.caption {{c.name}}
+          a(ng-click="open(c)")
+            img.cardImg(ng-src="{{c.image}}" alt="character")
+            h4.caption {{c.name}}

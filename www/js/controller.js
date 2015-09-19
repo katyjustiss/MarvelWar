@@ -1,17 +1,35 @@
 angular
   .module('MarvelWar')
 
-  .controller('CardCtrl', function ($http, $scope) {
+  .controller('CardCtrl', function ($http, $scope, $modal) {
       var card = this;
+      var team = [];
+      var compTeam = [];
 
         $http
-          .get('/')
+          .get('http://localhost:5000/api/cards')
           .success(function (res) {
-            console.log(res)
             card.data = res.cards;
-          });
+            console.log(card.data);
+        });
+
+      $scope.open = function (oneCard) {
+        console.log(oneCard)
+        $scope.oneCard = oneCard;
+        var modalInstance = $modal.open({
+          templateUrl: './modal.html',
+          controller: 'ModalInstanceCtrl',
+          scope: $scope
+          // resolve: {
+          //   oneCard: function() {
+          //     return $scope.oneCard;
+          //   }
+          // }
+        });
+      }
 
 
+        //Carousel options
       $scope.slickConfig = {
         autoplay: true,
         infinite: true,
@@ -50,16 +68,4 @@ angular
       };
 
   });
-
-  // .controller('GameCtrl', function ($http) {
-  //     var card = this;
-
-  //     $http
-  //       .get('/game')
-  //       // .success(function (res) {
-  //       //   console.log(res)
-  //       //   card.data = res.cards;
-  //       // });
-
-  //   });
 
