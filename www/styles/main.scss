@@ -1,0 +1,31 @@
+body {
+  background: url("../assets/comics.jpg");
+}
+
+.main-content {
+  background-color: black;
+  padding: 2% 5% 5%;
+  margin-top: 5%;
+  color: white;
+}
+
+.carousel_wrapper {
+  position:relative;
+}
+
+.caption {
+  position: absolute;
+  bottom: 2%;
+  left: 5%;
+  z-index: 50;
+  color: white;
+  text-shadow: 0 5px 5px rgba(0,0,0,.8);
+}
+
+.cardImg {
+  border: 3px solid black;
+}
+
+.oneImg {
+  margin: 2% auto;
+}

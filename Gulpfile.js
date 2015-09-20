@@ -1,7 +1,5 @@
 var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
-    proxy = require('proxy-middleware'),
-    url = require('url'),
     $ = require('gulp-load-plugins')({
       pattern: ['gulp-*', 'del', 'main-bower-files']
     });
