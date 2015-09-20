@@ -10,21 +10,15 @@ angular
           .get('http://localhost:5000/api/cards')
           .success(function (res) {
             card.data = res.cards;
-            console.log(card.data);
         });
 
       $scope.open = function (oneCard) {
         console.log(oneCard)
         $scope.oneCard = oneCard;
         var modalInstance = $modal.open({
-          templateUrl: './modal.html',
+          templateUrl: './views/partials/modal.html',
           controller: 'ModalInstanceCtrl',
           scope: $scope
-          // resolve: {
-          //   oneCard: function() {
-          //     return $scope.oneCard;
-          //   }
-          // }
         });
       }
 

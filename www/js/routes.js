@@ -4,11 +4,11 @@ angular
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateURL: 'index.html',
+        templateUrl: '/views/partials/card.html',
         controller: 'CardCtrl'
       })
       .when('/game', {
-        templateURL: 'game.html',
+        templateUrl: '/views/partials/game.html',
         controller: 'CardCtrl'
       })
       .otherwise({redirectTo:'/'});

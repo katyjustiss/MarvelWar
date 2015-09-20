@@ -64,20 +64,11 @@ gulp.task('build', ['jade:dev', 'js:dev', 'sass:dev']);
 
 gulp.task('js-watch', ['js:dev'], browserSync.reload);
 
-gulp.task('browser-sync', function (done) {
-  // browserSync.init(null, {
-  //     proxy: "localhost:5000",
-  //     files: ["public/**/*.*"],
-  //     open: false
-  // });
-  var proxyOptions = url.parse('http://localhost:5000');
-  browserSync.init(null, {
-    open: true,
-    port: 3000,
-    server: {
-        baseDir: "public",
-        middleware: [proxy(proxyOptions)]
-    }
+gulp.task('browser-sync', function () {
+  browserSync.init({
+      server: {
+        baseDir: "public/"
+      }
   });
 });
 
@@ -89,18 +80,4 @@ gulp.task('watch', ['build'], function () {
 });
 
 
-gulp.task('serve', ['build', 'browser-sync', 'watch'])
-
-// gulp.task('nodemon', function (cb) {
-//   var started = false;
-//   return $.nodemon({
-//     script: 'index.js',
-//     ignore:['public/js', 'www/js']
-//   }).on('start', function () {
-//     if (!started) {
-//       cb();
-//       started = true;
-//     }
-//   });
-// });
-
+gulp.task('serve', ['watch', 'browser-sync'])
