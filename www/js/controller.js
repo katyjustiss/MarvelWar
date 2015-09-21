@@ -1,16 +1,20 @@
 angular
   .module('MarvelWar')
 
-  .controller('CardCtrl', function ($http, $scope, $modal, MarvelTeam) {
-      var card = this;
+  .controller('CardCtrl', function ($http, $scope, $modal, MarvelTeam, GetCards) {
+      var vm = this;
       var team = [];
       $scope.team = team;
 
-        $http
-          .get('http://localhost:5000/api/cards')
-          .success(function (res) {
-            card.data = res.cards;
-        });
+        // $http
+        //   .get('http://localhost:5000/api/cards')
+        //   .success(function (res) {
+        //     card.data = res.cards;
+        // });
+
+      GetCards.getAll(function(res) {
+        vm.data = res.cards;
+      })
 
       $scope.open = function (oneCard) {
         console.log(oneCard)
