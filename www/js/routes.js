@@ -9,7 +9,7 @@ angular
       })
       .when('/game', {
         templateUrl: '/views/partials/game.html',
-        controller: 'CardCtrl'
+        controller: 'GameCtrl'
       })
       .otherwise({redirectTo:'/'});
   });

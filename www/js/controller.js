@@ -1,10 +1,10 @@
 angular
   .module('MarvelWar')
 
-  .controller('CardCtrl', function ($http, $scope, $modal) {
+  .controller('CardCtrl', function ($http, $scope, $modal, MarvelTeam) {
       var card = this;
       var team = [];
-      var compTeam = [];
+      $scope.team = team;
 
         $http
           .get('http://localhost:5000/api/cards')
@@ -20,15 +20,28 @@ angular
           controller: 'ModalInstanceCtrl',
           scope: $scope
         });
+
+        modalInstance.result.then(function () {
+          team.push(oneCard);
+          console.log(team.length)
+          MarvelTeam.setUserTeam(team);
+            $scope.team = team;
+          if (team.length === 3) {
+            $('.play_btn').css('visibility', 'visible');
+          }
+        })
       }
 
+      $scope.removeCard = function(cardIndex) {
+        $scope.team.splice(cardIndex, 1);
+      }
 
         //Carousel options
       $scope.slickConfig = {
         autoplay: true,
         infinite: true,
         draggable: false,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 4000,
         pauseOnHover: false,
         slidesToShow: 5,
         slidesToScroll: 3,

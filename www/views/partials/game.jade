@@ -1,3 +1,11 @@
-div.main-content
-  h1 Commence Attacks
-  div(ng-controller="CardCtrl as card")
+div.main-content(ng-controller="GameCtrl as game")
+  div.top_section
+    h1 Commence Attacks
+    h3 Computer
+    div.compHand
+      img.cardImg(ng-src="" alt="character")
+    h3 Your hand
+    div.gameHandContainer
+      div.yourHand(ng-repeat="g in game.getMyTeam")
+        img.thumbnail(ng-src="{{g.image}}" alt="character")
+

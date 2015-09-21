@@ -1,8 +1,10 @@
 .modal-header#modal
   h2 {{oneCard.name}}
-.modal-body
-  img.oneImg(ng-src="{{oneCard.image}}" alt="onecharacter")
-  p {{oneCard.description}}
+.modal-body.modalBody
+  div.imgContainer
+    img.oneImg(ng-src="{{oneCard.image}}" alt="onecharacter")
+  div.textContainer
+    p {{oneCard.description}}
 .modal-footer
-  button.btn.btn-danger(ng-click="ok()") Add
+  button.btn.btn-danger#add_btn(ng-click="ok()", ng-disabled="team.length === 5") Add
   button.btn.btn-default(ng-click="cancel()") Cancel

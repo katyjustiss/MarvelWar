@@ -38,11 +38,11 @@ gulp.task('clean', function (cb) {
 ///////////////JADE////////////////
 gulp.task('jade:dev', function () {
   return gulp
-    .src(['www/*.jade', 'www/views/*.jade', '!www/views/partials/_*.jade'])
+    .src(['www/*.jade', 'www/**/*.jade', 'www/**/**/*.jade','!www/views/partials/_*.jade'])
     .pipe($.jade({
       pretty: true
     }))
-    .pipe(gulp.dest('./public'));
+    .pipe(gulp.dest('public'));
 });
 
 ///////////////SASS///////////////////

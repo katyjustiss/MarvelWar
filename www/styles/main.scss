@@ -3,10 +3,13 @@ body {
 }
 
 .main-content {
+  color: white;
+}
+
+.top_section {
   background-color: black;
   padding: 2% 5% 5%;
   margin-top: 5%;
-  color: white;
 }
 
 .carousel_wrapper {
@@ -23,9 +26,55 @@ body {
 }
 
 .cardImg {
-  border: 3px solid black;
+  border: 3px solid white;
 }
 
-.oneImg {
-  margin: 2% auto;
+.modalBody {
+  display: flex;
+  flex-direction: row;
 }
+
+.imgContainer {
+  width: 50%;
+}
+
+.textContainer {
+  width: 40%;
+}
+
+.play_btn {
+  visibility: hidden;
+  margin-top: 10%;
+}
+
+.hand_container {
+  background-color: black;
+  padding: 2% 5% 5%;
+  margin-top: 3%;
+  width: 100%;
+  .teamImg {
+    width: 130px;
+    height: auto;
+  }
+}
+
+.cardsInHand {
+  display:inline-block;
+  position:relative;
+  .delete_btn {
+    position:absolute;
+    top:0;
+    right:0;
+  }
+}
+
+.gameHandContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+
+
+
