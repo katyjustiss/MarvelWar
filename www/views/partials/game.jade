@@ -1,11 +1,21 @@
-div.main-content(ng-controller="GameCtrl as game")
+div.main-content
   div.top_section
     h1 Commence Attacks
-    h3 Computer
-    div.compHand
-      img.cardImg(ng-src="" alt="character")
-    h3 Your hand
-    div.gameHandContainer
-      div.yourHand(ng-repeat="g in game.getMyTeam")
-        img.thumbnail(ng-src="{{g.image}}" alt="character")
 
+    div.container
+    h3 Computer Score: {{game.compScore}}
+      div.gameHandContainer
+        div.compHand(ng-repeat="c in game.data")
+          img.thumbnail.smallImg.compHand(ng-src="{{c.image}}", alt="character", ng-class="{your_move: game.compCard[$index], fadeOutRight: game.removeCompCard[$index]}")
+
+    div.container
+      alert(ng-repeat="alert in alerts", type="alert.type", close="closeAlert($index)") {{ alert.msg }}
+
+    div.container
+    h3 Your score: {{game.score}}
+      div.gameHandContainer
+        div.yourHand(ng-repeat="g in game.getMyTeam")
+          img.thumbnail.smallImg.playerHand(ng-src="{{g.image}}", alt="character", ng-click="game.moveCard($index); game.startGame(g)", ng-class="{your_move: game.selectedCard[$index], fadeOutRight: game.removeCard[$index]}")
+
+    div.play_button(class="col-md-offset-2 col-lg-offset-2")
+      a(href="/#/", class="btn btn-danger btn-lg play_btn") Play Again
