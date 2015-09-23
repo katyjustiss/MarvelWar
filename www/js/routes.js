@@ -5,11 +5,13 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: '/views/partials/card.html',
-        controller: 'CardCtrl'
+        controller: 'CardCtrl',
+        controllerAs: 'card'
       })
       .when('/game', {
         templateUrl: '/views/partials/game.html',
-        controller: 'GameCtrl'
+        controller: 'GameCtrl',
+        controllerAs: 'game'
       })
       .otherwise({redirectTo:'/'});
   });

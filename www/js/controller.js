@@ -4,20 +4,14 @@ angular
   .controller('CardCtrl', function ($http, $scope, $modal, MarvelTeam, GetCards) {
       var vm = this;
       var team = [];
-      $scope.team = team;
+      $scope.team = [];
 
-        // $http
-        //   .get('http://localhost:5000/api/cards')
-        //   .success(function (res) {
-        //     card.data = res.cards;
-        // });
-
-      GetCards.getAll(function(res) {
+      GetCards.then(function(res) {
         vm.data = res.cards;
+        $scope.apply();
       })
 
       $scope.open = function (oneCard) {
-        console.log(oneCard)
         $scope.oneCard = oneCard;
         var modalInstance = $modal.open({
           templateUrl: './views/partials/modal.html',
@@ -27,9 +21,8 @@ angular
 
         modalInstance.result.then(function () {
           team.push(oneCard);
-          console.log(team.length)
           MarvelTeam.setUserTeam(team);
-            $scope.team = team;
+          $scope.team = team;
           if (team.length === 3) {
             $('.play_btn').css('visibility', 'visible');
           }
