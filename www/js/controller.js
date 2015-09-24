@@ -8,7 +8,6 @@ angular
 
       GetCards.then(function(res) {
         vm.data = res.cards;
-        $scope.apply();
       })
 
       $scope.open = function (oneCard) {
