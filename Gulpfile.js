@@ -71,7 +71,7 @@ gulp.task('browser-sync', function () {
 });
 
 gulp.task('serveprod', function() {
-  connect.server({
+  $.connect.server({
     root: index.js,
     port: process.env.PORT || 3000, // localhost:5000
     livereload: false
