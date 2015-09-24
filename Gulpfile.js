@@ -34,6 +34,11 @@ gulp.task('clean', function (cb) {
   .catch(function (err) {console.log(err);});
 })
 
+gulp.task('copy', function () {
+  gulp
+    .src('www/assets/**')
+    .pipe(gulp.dest('public/assets'))
+})
 
 ///////////////JADE////////////////
 gulp.task('jade:dev', function () {
@@ -78,7 +83,7 @@ gulp.task('serveprod', function() {
   });
 });
 
-gulp.task('start', ['jade:dev', 'js:dev', 'sass:dev', 'serveprod']);
+gulp.task('start', ['jade:dev', 'js:dev', 'sass:dev', 'copy', 'serveprod']);
 
 //WATCH
 gulp.task('watch', ['build'], function () {
