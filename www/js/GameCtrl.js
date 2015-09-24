@@ -1,7 +1,7 @@
 angular
   .module('MarvelWar')
 
-  .controller('GameCtrl', function ($scope, $timeout, $rootScope, $location, MarvelTeam, GetCards) {
+  .controller('GameCtrl', function ($scope, $timeout, MarvelTeam, GetCards) {
     var vm = this;
     vm.data = [];
     vm.score = 0;
