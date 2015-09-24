@@ -23,7 +23,7 @@ angular
           team.push(oneCard);
           MarvelTeam.setUserTeam(team);
           $scope.team = team;
-          if (team.length === 3) {
+          if (team.length === 5) {
             $('.play_btn').css('visibility', 'visible');
           }
         })

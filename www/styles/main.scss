@@ -71,6 +71,12 @@ body {
 
 
 ////////////// GAME SCREEN /////////////////////
+.section {
+  background-color: black;
+  padding: 2% 5% 2%;
+  margin-top: 5%;
+}
+
 .gameHandContainer {
   display: flex;
   flex-direction: row;
@@ -81,12 +87,23 @@ body {
 }
 
 .your_move {
-  transition: all 1s;
-  transform: translate3d(450%, 0, 0);
+  //position: absolute;
+  //right: 10%;
+  transition: all 2s;
+  transform: translate(400%);
 }
 
 .fadeOutRight {
-  transition: all 1s;
-  transform: translate3d(5000%, 0, 0);
-  opacity: 0;
+  opacity: .3;
+  transition: all 2s;
+  transform: translate3d(1000%, 0, 0);
+}
+
+.alert-container {
+  margin: 5%;
+  background-color: black
+  .alert-style {
+    font-size: 2.0em;
+    text-align: center;
+  }
 }
