@@ -70,6 +70,8 @@ gulp.task('browser-sync', function () {
   });
 });
 
+gulp.task('start', ['jade:dev', 'js:dev', 'sass:dev', 'browser-sync']);
+
 //WATCH
 gulp.task('watch', ['build'], function () {
   gulp.watch(['www/**/*.jade', 'www/**/**/*.jade'], ['jade:dev']).on('change', browserSync.reload)
