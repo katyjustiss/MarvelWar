@@ -9,13 +9,15 @@ div.main-content.container
           img.thumbnail.smallImg.compHand(ng-src="{{c.image}}", alt="character", ng-class="{your_move: game.compCard[$index], fadeOutRight: game.removeCompCard[$index]}")
 
     div.alert-container
-      alert.alert-style(ng-if="show", dismiss-on-timeout="2000", close="game.closeAlert($index)") {{ game.alerts.msg }}
+      alert.alert-style(ng-if="show", type="danger", dismiss-on-timeout="1500", close="game.closeAlert($index)") {{ game.alerts.msg }}
 
     div
     h3 Your score: {{game.score}}
       div.gameHandContainer
         div.yourHand(ng-repeat="g in game.getMyTeam")
-          img.thumbnail.smallImg.playerHand(ng-src="{{g.image}}", alt="character", ng-disabled="isDisabled", ng-click="game.startGame(g)", ng-class="{your_move: game.selectedCard[$index], fadeOutRight: game.removeCard[$index]}")
+          img.thumbnail.smallImg.playerHand(ng-src="{{g.image}}", alt="character", ng-click="game.isDisabled || game.startGame(g)", ng-class="{your_move: game.selectedCard[$index], fadeOutRight: game.removeCard[$index]}")
 
     div.play_button(class="col-md-offset-2 col-lg-offset-2")
-      a(href="/#/", class="btn btn-danger btn-lg play_btn") Play Again
+
+
+        //- a(href="/#/", class="btn btn-danger alert-btn") Play Again

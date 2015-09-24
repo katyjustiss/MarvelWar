@@ -55,7 +55,7 @@ angular
 
     //starting game after card click.
     vm.startGame = function (card) {
-      $scope.isDisabled = true;
+      vm.isDisabled = true;
       vm.turn++;
       playerTurn(card);
       computerTurn(vm.data);
@@ -64,20 +64,18 @@ angular
       }, 2000);
     }
 
-    function Game() {
-      playerTurn(card);
-      computerTurn(vm.data);
-      $timeout(function() {
-        calculateScore(getIndex);
-      }, 2000);
-    }
+    // function Game() {
+    //   playerTurn(card);
+    //   computerTurn(vm.data);
+    //   $timeout(function() {
+    //     calculateScore(getIndex);
+    //   }, 2000);
+    // }
 
     function calculateScore(cb) {
       var compStats = vm.compStats;
       var stats = vm.stats;
       var total = compStats + stats;
-      console.log(stats);
-      console.log(compStats)
       $scope.show = true;
 
       if (compStats/total === stats/total) {
@@ -103,11 +101,13 @@ angular
 
     function finish() {
       if (vm.score >= 3) {
+        vm.turn = 'final';
+        $scope.show = true;
         addAlert({msg: 'CONGRATULATIONS! YOU SAVED THE WORLD'})
-        $scope.isDisabled = true;
       } else if (vm.compScore >= 3) {
+        vm.turn = 'final';
+        $scope.show = true;
         addAlert({msg: 'GAME OVER'})
-        $scope.isDisabled = true;
       }
     }
 
@@ -119,7 +119,7 @@ angular
       var compIndex = vm.data.indexOf(vm.currentCompCard)
       removePlayersCard(index);
       removeComputerCard(compIndex);
-      $scope.isDisabled = false;
+      vm.isDisabled = false;
       cb()
     }
 
@@ -155,7 +155,6 @@ angular
     //Computer Turn
     function computerTurn() {
       var random = randomThree.shift();
-      console.log(random);
       vm.currentCompCard = vm.data[random]
       var current = vm.data[random]
       vm.compStats = attackDefense(vm.currentCompCard);
@@ -200,8 +199,10 @@ angular
     }
 
     vm.closeAlert = function(index) {
-      $scope.show = false;
-      vm.alerts = [];
+      if (vm.turn !== 'final') {
+        $scope.show = false;
+        vm.alerts = [];
+      }
     }
 
 

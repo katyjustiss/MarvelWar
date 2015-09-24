@@ -87,8 +87,6 @@ body {
 }
 
 .your_move {
-  //position: absolute;
-  //right: 10%;
   transition: all 2s;
   transform: translate(400%);
 }
@@ -106,4 +104,8 @@ body {
     font-size: 2.0em;
     text-align: center;
   }
+}
+
+.alert-btn {
+  margin-left: -500;
 }
