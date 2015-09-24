@@ -1,13 +1,15 @@
 angular
   .module('MarvelWar')
 
-  .controller('CardCtrl', function ($http, $scope, $modal, MarvelTeam, GetCards) {
+  .controller('CardCtrl', function ($http, $scope, $modal, $timeout, MarvelTeam, GetCards) {
       var vm = this;
       var team = [];
       $scope.team = [];
 
       GetCards.then(function(res) {
-        vm.data = res.cards;
+        $timeout(function() {
+          vm.data = res.cards;
+        }, 1000);
       })
 
       $scope.open = function (oneCard) {
