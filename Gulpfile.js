@@ -70,7 +70,15 @@ gulp.task('browser-sync', function () {
   });
 });
 
-gulp.task('start', ['jade:dev', 'js:dev', 'sass:dev', 'browser-sync']);
+gulp.task('serveprod', function() {
+  connect.server({
+    root: index.js,
+    port: process.env.PORT || 3000, // localhost:5000
+    livereload: false
+  });
+});
+
+gulp.task('start', ['jade:dev', 'js:dev', 'sass:dev', 'serveprod']);
 
 //WATCH
 gulp.task('watch', ['build'], function () {
