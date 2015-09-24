@@ -7,9 +7,7 @@ angular
       $scope.team = [];
 
       GetCards.then(function(res) {
-        $timeout(function() {
           vm.data = res.cards;
-        }, 1000);
       })
 
       $scope.open = function (oneCard) {
