@@ -4,9 +4,9 @@
   div.imgContainer
     img.oneImg(ng-src="{{oneCard.image}}" alt="onecharacter")
   div.textContainer
-    p Bio: {{oneCard.description}}
-    p Attack: {{oneCard.attack}}
-    p Defense: {{oneCard.defense}}
+    p <span>Bio: </span> {{oneCard.description}}
+    p <span>Attack:</span> {{oneCard.attack}}
+    p <span>Defense:</span> {{oneCard.defense}}
 .modal-footer
   button.btn.btn-danger#add_btn(ng-click="ok()", ng-disabled="team.length === 5") Add
   button.btn.btn-default(ng-click="cancel()") Cancel

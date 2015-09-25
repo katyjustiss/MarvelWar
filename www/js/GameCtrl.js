@@ -1,22 +1,24 @@
 angular
   .module('MarvelWar')
 
-  .controller('GameCtrl', function ($scope, $timeout, MarvelTeam, GetCards) {
+  .controller('GameCtrl', function ($scope, $rootScope, $timeout, MarvelTeam, GetCards) {
     var vm = this;
     vm.data = [];
     vm.score = 0;
     vm.compScore = 0;
     vm.turn = 0;
 
+    $rootScope.marvelTeam = null;
+
     var randomThree = randomNum(0, 4);
-    var randomArr = randomNum(0, 32);
+    var randomArr = randomNum(0, 31);
 
     GetCards.then(function(res) {
       randomArr.forEach(function(random) {
-        if (!res.cards[random]) {
-          random < 32 ? random + 1 : random - 1;
-        }
-        return vm.data.push(res.cards[random])
+         vm.data.push(res.cards[random])
+          if(vm.data.length === 5) {
+            $scope.cardsLoaded = true;
+          }
       })
     })
 
@@ -62,10 +64,10 @@ angular
           addAlert({msg: "POW! You almost had 'em"})
         } else {
           vm.score++
-          addAlert({msg: 'Close call but you managed to pull out the win'})
+          addAlert({msg: 'Close call but you managed to win'})
         }
       } else if(stats/total > compStats/total) {
-        addAlert({msg: 'Kapow! Round Winner!'})
+        addAlert({msg: 'Kapow! Winner of this Round'})
         vm.score++;
       } else {
         vm.compScore++;
@@ -80,10 +82,12 @@ angular
     function finish() {
       if (vm.score >= 3) {
         vm.turn = 'final';
+        $rootScope.marvelTeam = true;
         addAlert({msg: 'CONGRATULATIONS! YOU SAVED THE WORLD'})
         $('.smplay_btn').css('visibility', 'visible');
       } else if (vm.compScore >= 3) {
         vm.turn = 'final';
+        $rootScope.marvelTeam = true;
         addAlert({msg: 'GAME OVER'})
         $('.smplay_btn').css('visibility', 'visible');
       } else {

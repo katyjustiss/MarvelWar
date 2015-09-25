@@ -39,11 +39,11 @@ body {
 }
 
 .imgContainer {
-  width: 50%;
+  width: 45%;
 }
 
 .textContainer {
-  width: 40%;
+  width: 55%;
 }
 
 .play_btn {
@@ -116,7 +116,7 @@ body {
 .fadeOutRight {
   opacity: .3;
   transition: all 5s;
-  transform: translate3d(1000%, 0, 0);
+  transform: translate3d(2000%, 0, 0);
 }
 
 .alert-container {
@@ -129,4 +129,5 @@ body {
 
 span {
   font-weight:bold;
+  font-size: 1.1em;
 }

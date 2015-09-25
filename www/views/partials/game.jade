@@ -6,7 +6,7 @@ div.main-content.container
     div
     h3 Computer Score: {{game.compScore}}
       div.gameHandContainer
-        div.compHand(ng-repeat="c in game.data")
+        div.compHand(ng-repeat="c in game.data" ng-if='cardsLoaded')
           img.thumbnail.smallImg.compHand(ng-src="{{c.image}}", alt="character", ng-class="{comp_move: game.compCard[$index], fadeOutRight: game.removeCompCard[$index]}")
 
     div.alert-container

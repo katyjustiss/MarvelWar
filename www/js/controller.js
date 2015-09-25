@@ -1,10 +1,11 @@
 angular
   .module('MarvelWar')
 
-  .controller('CardCtrl', function ($http, $scope, $modal, $timeout, MarvelTeam, GetCards) {
+  .controller('CardCtrl', function ($http, $scope, $modal, $rootScope, $timeout, MarvelTeam, GetCards) {
       var vm = this;
       var team = [];
       $scope.team = [];
+      $rootScope.marvelTeam = true;
 
       GetCards.then(function(res) {
           vm.data = res.cards;
